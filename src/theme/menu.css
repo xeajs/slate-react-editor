@@ -1,0 +1,39 @@
+.ant-tooltip-open[data-slate-node='element'] {
+  background-color: rgba(0, 0, 0, 0.026);
+}
+
+.slate-menu.slate-menu-toolbar,
+.slate-menu.slate-menu-tipsbar {
+  display: flex;
+  align-items: center;
+  min-height: 38px;
+  flex-wrap: wrap;
+  cursor: pointer;
+  padding: 0 4px;
+}
+
+.slate-menu .slate-menu-item {
+  min-height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 4px 2px;
+  padding: 0 12px;
+  border-radius: 4px;
+  transition: all 0.56s;
+  color: #333;
+  font-size: 14px;
+}
+.slate-menu .slate-menu-item svg {
+  font-size: 18px;
+}
+.slate-menu .slate-menu-item.active,
+.slate-menu .slate-menu-item:hover {
+  background-color: #f4f4f4;
+}
+
+.slate-menu .slate-menu-item.disable {
+  cursor: not-allowed;
+  color: rgba(0, 0, 0, 0.25);
+  box-shadow: none;
+}

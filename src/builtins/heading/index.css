@@ -1,0 +1,24 @@
+span[data-editor-heading='h1'] {
+  font-weight: bold;
+  font-size: 32px;
+}
+span[data-editor-heading='h2'] {
+  font-weight: bold;
+  font-size: 24px;
+}
+span[data-editor-heading='h3'] {
+  font-weight: bold;
+  font-size: 18px;
+}
+span[data-editor-heading='h4'] {
+  font-weight: bold;
+  font-size: 16px;
+}
+span[data-editor-heading='h5'] {
+  font-weight: bold;
+  font-size: 13px;
+}
+span[data-editor-heading='h6'] {
+  font-weight: bold;
+  font-size: 12px;
+}

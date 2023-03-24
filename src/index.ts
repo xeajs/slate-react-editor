@@ -1,0 +1,8 @@
+export * from 'is-hotkey'
+export * as slate from 'slate'
+export * from './boot'
+export * from './editor'
+export * from './hooks'
+export * from './share'
+export * from './types'
+import './builtins'

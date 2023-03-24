@@ -1,0 +1,33 @@
+.slate-react-editor {
+  position: relative;
+  outline: none;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  padding: 6px;
+}
+.slate-react-editor [data-slate-node] {
+  line-height: 1.6;
+  margin: 0.64em 0;
+}
+
+.slate-react-editor .slate-image {
+  display: flex;
+  width: 100%;
+  min-height: 128px;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #f9f9f9;
+}
+
+.slate-react-editor .slate-image img {
+  min-width: 0;
+  max-width: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 8px;
+  border: 2px solid transparent;
+}
+
+.slate-react-editor .slate-image.active img {
+  border-color: #5fa8f6;
+}
