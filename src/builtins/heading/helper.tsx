@@ -17,7 +17,7 @@ export function create(key: string, label?: (props) => JSX.Element): Omit<IBoot.
         match: (n) => !(slate.Editor.isEditor(n) || slate.Element.isElement(n)),
         split: true,
       })
-      slate.Transforms.setNodes(editor, { type: key } as any)
+      slate.Transforms.setNodes(editor, { type: key } as unknown as slate.Element)
     },
   }
 }

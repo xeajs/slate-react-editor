@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 import { useRef } from 'react'
-import { Editable, Slate } from 'slate-react'
-import { createTextLeaves, IEditor, IEditorProps, invoke, slate, useEditor } from 'src'
+import { Editable, ReactEditor, Slate } from 'slate-react'
+import { IEditor, IEditorProps, createTextLeaves, invoke, slate, useEditor } from 'src'
 import { createEditor, createParser, createRender } from 'src/share/engine'
 
 export { Toolbar } from './toolbar'
@@ -14,7 +14,11 @@ export function ConfigProvider({ defaultValue, onChange, children }: ConfigProvi
   const editor = useRef(createEditor()).current
   const descendant = useRef(createParser(editor, defaultValue)).current
   return (
-    <Slate editor={editor as any} value={descendant} onChange={(value) => invoke(onChange, editor, value)}>
+    <Slate
+      editor={editor as unknown as ReactEditor}
+      value={descendant}
+      onChange={(value) => invoke(onChange, editor, value)}
+    >
       {children}
     </Slate>
   )

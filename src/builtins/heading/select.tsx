@@ -1,8 +1,8 @@
+import { create } from './helper'
 import { Dropdown } from 'antd'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { AiFillCaretDown } from 'react-icons/ai'
-import { Boot, Bucket, event, slate, useEditor } from 'src'
-import { create } from './helper'
+import { Boot, Bucket, IBoot, event, slate, useEditor } from 'src'
 
 function HeadingSelect() {
   const editor = useEditor()
@@ -26,7 +26,7 @@ function HeadingSelect() {
         match: (n) => !(slate.Editor.isEditor(n) || slate.Element.isElement(n)),
         split: true,
       })
-      slate.Transforms.setNodes(editor, { type: 'paragraph' } as any)
+      slate.Transforms.setNodes(editor, { type: 'paragraph' } as IBoot.Element)
     }
   }
 

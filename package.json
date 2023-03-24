@@ -12,9 +12,9 @@
     "build": "father build",
     "doctor": "father doctor",
     "prepare": "husky install",
-    "prefix": "echo 1 #rome format src --write",
-    "fix": "echo 2 #rome check src --apply-suggested",
-    "postfix": "echo 3 # tsc --noEmit --pretty"
+    "prefix": "rome format src --write",
+    "fix": "rome check src",
+    "postfix": "tsc --noEmit --pretty"
   },
   "keywords": [
     "slate",

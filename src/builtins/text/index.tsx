@@ -1,3 +1,4 @@
+import './locale'
 import { ReactNode } from 'react'
 import {
   MdFormatBold,
@@ -8,7 +9,6 @@ import {
   MdSuperscript,
 } from 'react-icons/md'
 import { Boot, IBoot, IEditor, slate } from 'src'
-import './locale'
 
 export function createMenus(key: string, title: string, label: ReactNode): Omit<IBoot.Menu, 'type'> {
   return {
@@ -26,7 +26,7 @@ export function createMenus(key: string, title: string, label: ReactNode): Omit<
         match: (n) => {
           const type = editor.getNodeType(n)
           if (type === 'pre') return true // 代码块
-          if (slate.Editor.isVoid(editor, n as any)) return true // void node
+          if (slate.Editor.isVoid(editor, n as IBoot.Element)) return true // void node
           return false
         },
         universal: true,

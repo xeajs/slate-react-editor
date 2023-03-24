@@ -19,7 +19,7 @@ export function createEditor() {
 
 export function createSlateHtml(descendant: slate.Descendant, editor: IEditor) {
   const slate2html = Bucket.Html.get(descendant['type'])
-  return slate2html ? slate2html(descendant as any, editor) : ''
+  return slate2html ? slate2html(descendant as IBoot.Element, editor) : ''
 }
 
 export function createParser(editor: IEditor, html: string | slate.Descendant[]) {
@@ -80,6 +80,6 @@ export function createToolbar(ignore: string[] = []) {
   return menuTypes.reduce<IBoot.Menu[]>((toolbars, type) => [...toolbars, Bucket.Menu.get(type)!].filter(Boolean), [])
 }
 
-export function createTipsbar<T = any>(editor: IEditor, type: string): T | null {
+export function createTipsbar<T = {}>(editor: IEditor, type: string): T | null {
   return null
 }
