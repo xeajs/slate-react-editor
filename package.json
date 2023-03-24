@@ -1,9 +1,12 @@
 {
   "name": "slate-react-editor",
-  "version": "0.0.0",
+  "version": "0.90.0-alpha.1",
+  "description": "A pluggable rich text editor based on slate and react",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
+  "repository": "https://github.com/xeajs/slate-react-editor",
+  "homepage": "https://github.com/xeajs/slate-react-editor",
   "scripts": {
     "dev": "father dev",
     "build": "father build",
@@ -19,6 +22,9 @@
     "name": "xeajs",
     "email": "yejiang1015@gmail.com",
     "url": "https://github.com/xeajs/slate-react-editor"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
   },
   "license": "MIT",
   "files": [
