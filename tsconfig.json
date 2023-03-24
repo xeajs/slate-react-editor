@@ -33,9 +33,26 @@
     "esModuleInterop": true,
     "skipDefaultLibCheck": true,
     "skipLibCheck": true,
-    "typeRoots": ["node_modules/@types", "typings"],
-    "lib": ["ES6", "DOM", "DOM.Iterable", "ESNext"]
+    "typeRoots": [
+      "node_modules/@types",
+      "typings"
+    ],
+    "lib": [
+      "ES6",
+      "DOM",
+      "DOM.Iterable",
+      "ESNext"
+    ]
   },
-  "include": ["src", "typings", "playground"],
-  "exclude": ["node_modules", "**/?(*.)+(spec|test).[tj]s?(x)", "**/demo/**", "**/__test__/**"]
+  "include": [
+    "src",
+    "typings",
+    "playground"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/?(*.)+(spec|test).[tj]s?(x)",
+    "**/demo/**",
+    "**/__test__/**"
+  ]
 }

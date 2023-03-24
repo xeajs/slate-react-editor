@@ -25,7 +25,7 @@ export function Itembar({ attributes, slateElement, placement, dataSource }: Ite
 
   const onMouseDown = (e) => {
     e.preventDefault()
-    if (!readOnly && !disable) _exec()
+    if (!(readOnly || disable)) _exec()
   }
 
   const onEditorChange = () => {

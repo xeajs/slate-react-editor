@@ -14,10 +14,10 @@ export function create(key: string, label?: (props) => JSX.Element): Omit<IBoot.
     exec: async function (editor: IEditor) {
       if (key === 'heading') return // 点击下拉框的菜单无效
       slate.Transforms.unwrapNodes(editor, {
-        match: (n) => !slate.Editor.isEditor(n) && !slate.Element.isElement(n),
+        match: (n) => !(slate.Editor.isEditor(n) || slate.Element.isElement(n)),
         split: true,
       })
-      slate.Transforms.setNodes(editor, { type: key } as any)
+      slate.Transforms.setNodes(editor, { type: key } as unknown as slate.Element)
     },
   }
 }

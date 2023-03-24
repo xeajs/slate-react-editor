@@ -36,7 +36,7 @@ export function withContent(editor: IEditor) {
     const { children } = slateElement
     if (slateElement['type'] !== 'paragraph') return false
     if (children.length > 1) return false
-    return !Boolean(children[0]['text'])
+    return !children[0]['text']
   }
 
   editor.genEmptyParagraph = function () {

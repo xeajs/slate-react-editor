@@ -10,7 +10,11 @@
   "scripts": {
     "dev": "father dev",
     "build": "father build",
-    "doctor": "father doctor"
+    "doctor": "father doctor",
+    "prepare": "husky install",
+    "prefix": "rome format src --write",
+    "fix": "rome check src",
+    "postfix": "tsc --noEmit --pretty"
   },
   "keywords": [
     "slate",
@@ -53,8 +57,11 @@
     "@types/react-dom": "18.0.11",
     "@vitejs/plugin-react-swc": "^3.2.0",
     "father": "4.1.7",
+    "husky": "8.0.3",
+    "lint-staged": "13.2.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "rome": "11.0.0",
     "typescript": "4.9.5",
     "vite": "4.1.4"
   },
@@ -64,9 +71,7 @@
   },
   "lint-staged": {
     "*.(ts|tsx)": [
-      "prettier --write",
-      "node_modules/.bin/eslint --color --fix --ext .ts,.tsx",
-      "npm run tslint"
+      "npm run fix"
     ]
   }
 }

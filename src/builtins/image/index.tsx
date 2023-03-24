@@ -41,7 +41,7 @@ export default Boot.factory((setup) => {
     async exec(editor, slateElement) {
       if (!slateElement) return
       const path = ReactEditor.findPath(editor, slateElement)
-      const newAttr = { width: '20%' } as any
+      const newAttr = { width: '20%' } as unknown as IBoot.Element
       slate.Transforms.setNodes(editor, newAttr, { at: path })
     },
   })
@@ -59,7 +59,7 @@ export default Boot.factory((setup) => {
     'image.w50',
     createImageMenu('', '50%', (editor, element) => {
       const path = ReactEditor.findPath(editor, element)
-      const newAttr = { width: '50%' } as any
+      const newAttr = { width: '50%' } as unknown as IBoot.Element
       slate.Transforms.setNodes(editor, newAttr, { at: path })
     })
   )
@@ -67,7 +67,7 @@ export default Boot.factory((setup) => {
     'image.w75',
     createImageMenu('', '75%', (editor, element) => {
       const path = ReactEditor.findPath(editor, element)
-      const newAttr = { width: '75%' } as any
+      const newAttr = { width: '75%' } as unknown as IBoot.Element
       slate.Transforms.setNodes(editor, newAttr, { at: path })
     })
   )
@@ -75,7 +75,7 @@ export default Boot.factory((setup) => {
     'image.w100',
     createImageMenu('', '100%', (editor, element) => {
       const path = ReactEditor.findPath(editor, element)
-      const newAttr = { width: '100%' } as any
+      const newAttr = { width: '100%' } as unknown as IBoot.Element
       slate.Transforms.setNodes(editor, newAttr, { at: path })
     })
   )
@@ -84,7 +84,7 @@ export default Boot.factory((setup) => {
     'image.align.start',
     createImageMenu('左对齐', <AiOutlineAlignLeft />, (editor, element) => {
       const path = ReactEditor.findPath(editor, element)
-      const newAttr = { align: 'start' } as any
+      const newAttr = { align: 'start' } as unknown as IBoot.Element
       slate.Transforms.setNodes(editor, newAttr, { at: path })
     })
   )
@@ -92,7 +92,7 @@ export default Boot.factory((setup) => {
     'image.align.center',
     createImageMenu('居中对齐', <AiOutlineAlignCenter />, (editor, element) => {
       const path = ReactEditor.findPath(editor, element)
-      const newAttr = { align: 'center' } as any
+      const newAttr = { align: 'center' } as unknown as IBoot.Element
       slate.Transforms.setNodes(editor, newAttr, { at: path })
     })
   )
@@ -100,7 +100,7 @@ export default Boot.factory((setup) => {
     'image.align.end',
     createImageMenu('右对齐', <AiOutlineAlignRight />, (editor, element) => {
       const path = ReactEditor.findPath(editor, element)
-      const newAttr = { align: 'end' } as any
+      const newAttr = { align: 'end' } as unknown as IBoot.Element
       slate.Transforms.setNodes(editor, newAttr, { at: path })
     })
   )
@@ -119,7 +119,7 @@ export default Boot.factory((setup) => {
     const src = node.getAttribute('src') || ''
     const alt = node.getAttribute('alt') || ''
     const width = node.getAttribute('width') || '100%'
-    const align = (node.getAttribute('align') as any) || 'center'
+    const align = (node.getAttribute('align') as 'center') || 'center'
     return { type: 'image', src, alt, width, align, children: [{ text: '' }] }
   })
 
@@ -137,6 +137,7 @@ export default Boot.factory((setup) => {
       <div {...source.attributes}>
         {source.children}
         <div className={classNames('slate-image', active && 'active')} style={{ justifyContent: align }}>
+          {/* rome-ignore lint/a11y/useAltText: <explanation> */}
           <img {...imgAttr} onMouseDown={() => editor.select(ReactEditor.findPath(editor, slateElement))} />
         </div>
       </div>

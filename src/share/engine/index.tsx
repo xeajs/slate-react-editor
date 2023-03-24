@@ -2,7 +2,7 @@ import * as htmlParser from 'node-html-parser'
 import { withHistory } from 'slate-history'
 import { jsx } from 'slate-hyperscript'
 import { RenderElementProps, withReact } from 'slate-react'
-import { Bucket, getEmptySlate, IBoot, IEditor, slate } from 'src'
+import { Bucket, IBoot, IEditor, getEmptySlate, slate } from 'src'
 import { Tipsbar } from 'src/editor/tipsbar'
 import { withContent } from 'src/share/plugins/content'
 import { withDefine } from 'src/share/plugins/define'
@@ -19,7 +19,7 @@ export function createEditor() {
 
 export function createSlateHtml(descendant: slate.Descendant, editor: IEditor) {
   const slate2html = Bucket.Html.get(descendant['type'])
-  return slate2html ? slate2html(descendant as any, editor) : ''
+  return slate2html ? slate2html(descendant as IBoot.Element, editor) : ''
 }
 
 export function createParser(editor: IEditor, html: string | slate.Descendant[]) {
@@ -35,7 +35,10 @@ export function createParser(editor: IEditor, html: string | slate.Descendant[])
   // 非 HTML 格式，文本格式，用 <p> 包裹
   if (html.indexOf('<') !== 0) {
     // prettier-ignore
-    html = html.split(/\n/).map((text) => `<p>${text}</p>`).join('')
+    html = html
+      .split(/\n/)
+      .map((text) => `<p>${text}</p>`)
+      .join('')
   }
 
   const rootNodes = htmlParser.parse(html).childNodes
@@ -52,7 +55,6 @@ export function createParser(editor: IEditor, html: string | slate.Descendant[])
     if (parse) {
       const value = parse(childNode as htmlParser.HTMLElement, editor)
       descendant.push(jsx('element', value, value.children))
-      continue
     }
   }
 
@@ -78,6 +80,6 @@ export function createToolbar(ignore: string[] = []) {
   return menuTypes.reduce<IBoot.Menu[]>((toolbars, type) => [...toolbars, Bucket.Menu.get(type)!].filter(Boolean), [])
 }
 
-export function createTipsbar<T = any>(editor: IEditor, type: string): T | null {
+export function createTipsbar<T = {}>(editor: IEditor, type: string): T | null {
   return null
 }
