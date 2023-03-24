@@ -55,7 +55,6 @@ export function createParser(editor: IEditor, html: string | slate.Descendant[])
     if (parse) {
       const value = parse(childNode as htmlParser.HTMLElement, editor)
       descendant.push(jsx('element', value, value.children))
-      continue
     }
   }
 

@@ -23,7 +23,7 @@ function HeadingSelect() {
       keyMenu.exec(editor)
     } else {
       slate.Transforms.unwrapNodes(editor, {
-        match: (n) => !slate.Editor.isEditor(n) && !slate.Element.isElement(n),
+        match: (n) => !(slate.Editor.isEditor(n) || slate.Element.isElement(n)),
         split: true,
       })
       slate.Transforms.setNodes(editor, { type: 'paragraph' } as any)

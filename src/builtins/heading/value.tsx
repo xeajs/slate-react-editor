@@ -9,19 +9,19 @@ export default Boot.factory((setup) => {
   setup.menu('h5', create('h5'))
 
   setup.html<slateNodes.H1>('h1', (slateElement, editor) => {
-    return `<h1>1</h1>`
+    return "<h1>1</h1>"
   })
   setup.html<slateNodes.H2>('h2', (slateElement, editor) => {
-    return `<h2>1</h2>`
+    return "<h2>1</h2>"
   })
   setup.html<slateNodes.H3>('h3', (slateElement, editor) => {
-    return `<h3>3</h3>`
+    return "<h3>3</h3>"
   })
   setup.html<slateNodes.H4>('h4', (slateElement, editor) => {
-    return `<h4>1</h4>`
+    return "<h4>1</h4>"
   })
   setup.html<slateNodes.H5>('h5', (slateElement, editor) => {
-    return `<h5>1</h5>`
+    return "<h5>1</h5>"
   })
 
   setup.parser<slateNodes.H1>('h1', 'h1', (node) => {

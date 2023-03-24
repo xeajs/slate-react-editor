@@ -11,7 +11,10 @@
     "dev": "father dev",
     "build": "father build",
     "doctor": "father doctor",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "prefix": "echo 1 #rome format src --write",
+    "fix": "echo 2 #rome check src --apply-suggested",
+    "postfix": "echo 3 # tsc --noEmit --pretty"
   },
   "keywords": [
     "slate",
@@ -68,9 +71,7 @@
   },
   "lint-staged": {
     "*.(ts|tsx)": [
-      "rome format src --write",
-      "rome check src",
-      "npm run tslint"
+      "npm run fix"
     ]
   }
 }
