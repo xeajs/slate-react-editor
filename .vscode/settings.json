@@ -15,7 +15,7 @@
     "editor.defaultFormatter": "rome.rome"
   },
   "[css]": {
-    "editor.defaultFormatter": "rome.rome"
+    "editor.defaultFormatter": "vscode.css-language-features"
   },
   "[less]": {
     "editor.defaultFormatter": "rome.rome"

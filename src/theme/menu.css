@@ -24,9 +24,11 @@
   color: #333;
   font-size: 14px;
 }
+
 .slate-menu .slate-menu-item svg {
   font-size: 18px;
 }
+
 .slate-menu .slate-menu-item.active,
 .slate-menu .slate-menu-item:hover {
   background-color: #f4f4f4;
@@ -36,4 +38,29 @@
   cursor: not-allowed;
   color: rgba(0, 0, 0, 0.25);
   box-shadow: none;
+}
+
+.editor-menu-leftbar-modal-item {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding: 4px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 400;
+  font-size: 14px;
+  margin-bottom: 4px;
+  color: #333;
+}
+
+.editor-menu-leftbar-modal-item svg {
+  margin-right: 6px;
+}
+
+.editor-menu-leftbar-modal-item:hover {
+  background-color: #f4f4f4;
+}
+
+.editor-menu-leftbar-modal-item:active {
+  background-color: #f8f8f8;
 }
