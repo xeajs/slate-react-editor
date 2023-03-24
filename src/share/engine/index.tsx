@@ -2,7 +2,7 @@ import * as htmlParser from 'node-html-parser'
 import { withHistory } from 'slate-history'
 import { jsx } from 'slate-hyperscript'
 import { RenderElementProps, withReact } from 'slate-react'
-import { Bucket, getEmptySlate, IBoot, IEditor, slate } from 'src'
+import { Bucket, IBoot, IEditor, getEmptySlate, slate } from 'src'
 import { Tipsbar } from 'src/editor/tipsbar'
 import { withContent } from 'src/share/plugins/content'
 import { withDefine } from 'src/share/plugins/define'
@@ -35,7 +35,10 @@ export function createParser(editor: IEditor, html: string | slate.Descendant[])
   // 非 HTML 格式，文本格式，用 <p> 包裹
   if (html.indexOf('<') !== 0) {
     // prettier-ignore
-    html = html.split(/\n/).map((text) => `<p>${text}</p>`).join('')
+    html = html
+      .split(/\n/)
+      .map((text) => `<p>${text}</p>`)
+      .join('')
   }
 
   const rootNodes = htmlParser.parse(html).childNodes
