@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { useSlate } from 'slate-react'
-import { IEditor } from 'src/types'
+import { IEditor } from 'src'
 
 export { useFocused, useReadOnly, useSelected, useSlateSelection, useSlateSelector, useSlateStatic } from 'slate-react'
 

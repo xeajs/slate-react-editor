@@ -4,7 +4,7 @@ import { MdMoreVert } from 'react-icons/md'
 import { RiDeleteBin5Line } from 'react-icons/ri'
 import { TbRowInsertBottom, TbRowInsertTop } from 'react-icons/tb'
 import { RenderElementProps, useFocused, useReadOnly } from 'slate-react'
-import { Bucket } from 'src'
+import { Bucket, IBoot } from 'src'
 import { Itembar } from 'src/share/components/itembar'
 import { getDefineTipsbar } from 'src/share/define'
 
@@ -34,12 +34,11 @@ export function LeftbarModal() {
 
 export function Tipsbar({ children, renderElementProps }: TipsbarProps) {
   const readOnly = useReadOnly()
-  const focused = useFocused()
   const defineTipsbars = getDefineTipsbar(renderElementProps.element['type'])
-  const tipsbars = defineTipsbars.map((k) => Bucket.Menu.get(k)!).filter(Boolean)
+  const tipsbars = defineTipsbars.map((k) => Bucket.Menu.get(k) as IBoot.Menu).filter(Boolean)
 
   const Topbar = () => {
-    if (readOnly || !tipsbars.length || !focused) return null
+    if (readOnly || !tipsbars.length) return null
     return (
       <div className="slate-menu slate-menu-tipsbar">
         {tipsbars.map((value) => (
@@ -50,10 +49,10 @@ export function Tipsbar({ children, renderElementProps }: TipsbarProps) {
   }
 
   const Leftbar = () => {
-    if (readOnly || !focused) return null
+    if (readOnly) return null
     return (
-      <Popover arrow={false} destroyTooltipOnHide content={<LeftbarModal />} placement="bottomLeft" trigger={['click']}>
-        <span style={{ color: '#333' }} onMouseDown={(e) => e.preventDefault()}>
+      <Popover arrow={false} destroyTooltipOnHide content={<LeftbarModal />} placement="leftTop" trigger={['click']}>
+        <span className='slate-editor-tipsbar-fixed-icon' onMouseDown={(e) => e.preventDefault()}>
           <MdMoreVert size={18} />
           <MdMoreVert size={18} style={{ marginLeft: '-12px' }} />
         </span>

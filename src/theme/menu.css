@@ -64,3 +64,15 @@
 .editor-menu-leftbar-modal-item:active {
   background-color: #f8f8f8;
 }
+
+.slate-editor-tipsbar-fixed-icon {
+  color: #666;
+}
+
+.slate-editor-tipsbar-fixed-icon:hover {
+  color: #1677ffcc;
+}
+
+.slate-editor-tipsbar-fixed-icon.ant-popover-open {
+  color: #1677ff;
+}
