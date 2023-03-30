@@ -4,7 +4,7 @@ import { IToolbarProps } from 'src'
 import { Itembar } from 'src/share/components/itembar'
 import { createToolbar } from 'src/share/engine'
 
-export function Toolbar({ ignore, features, className, ...props }: IToolbarProps) {
+export function Toolbar({ ignore, define, className, ...props }: IToolbarProps) {
   const toolbars = useRef(Array.from(createToolbar(ignore))).current
 
   return (

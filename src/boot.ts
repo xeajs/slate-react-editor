@@ -1,7 +1,7 @@
 import * as htmlParser from 'node-html-parser'
 import { RenderElementProps } from 'slate-react'
 import { slate } from 'src'
-import { IEditor } from 'src/types'
+import { IEditor } from 'src'
 
 export const Bucket = {
   Hook: new Map<string, IBoot.Hook>(),
@@ -9,7 +9,9 @@ export const Bucket = {
   Parser: new Map<string, { selector: string; parse: IBoot.Parser<IBoot.Element> }>(),
   Render: new Map<string, IBoot.Render<IBoot.Element>>(),
   Menu: new Map<string, IBoot.Menu>(),
-  Define: new Map<string, object>(),
+  Toolbar: new Set<string>(),
+  Tipsbar: new Map<string, string[]>(),
+  Leftbar: new Map<string, string[]>(),
 }
 
 export declare module IBoot {

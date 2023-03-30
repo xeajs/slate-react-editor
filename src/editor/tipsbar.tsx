@@ -1,8 +1,10 @@
 import { Popover } from 'antd'
 import { ReactNode } from 'react'
 import { MdMoreVert } from 'react-icons/md'
-import { RenderElementProps, useReadOnly } from 'slate-react'
-import { Bucket } from 'src'
+import { RiDeleteBin5Line } from 'react-icons/ri'
+import { TbRowInsertBottom, TbRowInsertTop } from 'react-icons/tb'
+import { RenderElementProps, useFocused, useReadOnly } from 'slate-react'
+import { Bucket, IBoot } from 'src'
 import { Itembar } from 'src/share/components/itembar'
 import { getDefineTipsbar } from 'src/share/define'
 
@@ -11,27 +13,29 @@ interface TipsbarProps {
   renderElementProps: RenderElementProps
 }
 
-export function Iconbar() {
+export function LeftbarModal() {
   return (
-    <Popover
-      arrow={false}
-      destroyTooltipOnHide
-      title={<div style={{ color: '#333', width: '180px', height: '260px' }}>弹框菜单内容</div>}
-      placement="bottomLeft"
-      trigger={['click']}
-    >
-      <span style={{ color: '#333' }}>
-        <MdMoreVert size={18} />
-        <MdMoreVert size={18} style={{ marginLeft: '-12px' }} />
+    <div style={{ color: '#333', display: 'flex', flexDirection: 'column' }} onMouseDown={(e) => e.preventDefault()}>
+      <span className='editor-menu-leftbar-modal-item'>
+        <TbRowInsertTop size={18} />
+        在上方添加行
       </span>
-    </Popover>
+      <span className='editor-menu-leftbar-modal-item'>
+        <TbRowInsertBottom size={18} />
+        在下方添加行
+      </span>
+      <span className='editor-menu-leftbar-modal-item'>
+        <RiDeleteBin5Line size={18} />
+        删除
+      </span>
+    </div>
   )
 }
 
 export function Tipsbar({ children, renderElementProps }: TipsbarProps) {
   const readOnly = useReadOnly()
   const defineTipsbars = getDefineTipsbar(renderElementProps.element['type'])
-  const tipsbars = defineTipsbars.map((k) => Bucket.Menu.get(k)!).filter(Boolean)
+  const tipsbars = defineTipsbars.map((k) => Bucket.Menu.get(k) as IBoot.Menu).filter(Boolean)
 
   const Topbar = () => {
     if (readOnly || !tipsbars.length) return null
@@ -44,13 +48,25 @@ export function Tipsbar({ children, renderElementProps }: TipsbarProps) {
     )
   }
 
+  const Leftbar = () => {
+    if (readOnly) return null
+    return (
+      <Popover arrow={false} destroyTooltipOnHide content={<LeftbarModal />} placement="leftTop" trigger={['click']}>
+        <span className='slate-editor-tipsbar-fixed-icon' onMouseDown={(e) => e.preventDefault()}>
+          <MdMoreVert size={18} />
+          <MdMoreVert size={18} style={{ marginLeft: '-12px' }} />
+        </span>
+      </Popover>
+    )
+  }
+
   return (
     <Popover arrow={false} destroyTooltipOnHide overlayInnerStyle={{ padding: 0 }} content={<Topbar />}>
       <Popover
         arrow={false}
         destroyTooltipOnHide
         align={{ offset: [-3, 3] }}
-        content={<Iconbar />}
+        content={<Leftbar />}
         overlayInnerStyle={{ boxShadow: 'none', padding: 0 }}
         placement="leftTop"
       >

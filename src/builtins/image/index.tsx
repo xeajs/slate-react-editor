@@ -46,15 +46,6 @@ export default Boot.factory((setup) => {
     },
   })
 
-  // setup.menu(
-  //   'image.w25',
-  //   createImageMenu('', '25%', (editor, element) => {
-  //     const path = ReactEditor.findPath(editor, element)
-  //     const newAttr = { width: '20%' } as any
-  //     slate.Transforms.setNodes(editor, newAttr, { at: path })
-  //   })
-  // )
-
   setup.menu(
     'image.w50',
     createImageMenu('', '50%', (editor, element) => {

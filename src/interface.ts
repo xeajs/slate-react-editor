@@ -81,10 +81,10 @@ export interface IEditorProps extends TextareaHTMLAttributes<HTMLDivElement> {
 
 export interface IToolbarProps extends HTMLAttributes<HTMLDivElement> {
   ignore?: string[]
-  features?: string[]
+  define?: string[]
 }
 
 export interface IDefine {
   tipsbar: Record<string, string[]>
-  tipopen: Record<string, string[]>
+  leftbar: Record<string, string[]>
 }
