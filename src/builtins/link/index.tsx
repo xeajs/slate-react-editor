@@ -30,7 +30,7 @@ export default Boot.factory((setup) => {
 
   setup.parser<slateNodes.Link>('link', 'a', (node) => {
     const _node = node as unknown as HTMLLinkElement
-    return { type: 'link', href: _node.getAttribute('href')!, text: '', children: createTextParser(node) }
+    return { type: 'link', href: _node.getAttribute('href') as string, text: '', children: createTextParser(node) }
   })
 
   setup.render<slateNodes.Link>('link', (se, { attributes, children }, editor) => {
