@@ -27,3 +27,33 @@ TOOD:
 - [ ] 支持 youtube 视频卡片
 - [ ] 支持 twitter 分享卡片
 - [ ] 支持 表格
+
+- 计划
+
+目录/模块结构
+
+...
+site - dumi 文档网站目录
+src
+  builtins - 内置模块
+  editor
+    components - 编辑器 React 通用组件
+    transfer - 编辑器 插件系统和 Slate对接模块
+    event - 自定义事件
+    i18n - 国际化
+    leaves - 文本样式模块
+    plugins - 内置插件集合
+    tools - slate.Transforms 扩展集合
+    provider.tsx - Slate 配置容器组件
+    editable.tsx - Slate 可编辑区域组件
+    toolbar.tsx  - 编辑器导航条组件
+    tipsbar.tsx - 单行的悬浮操作组件
+    linebar.tsx - 单行的弹窗操作组件
+  helpers - 帮助程序和工具函数
+  hooks - 编辑器 hooks
+  theme - 编辑器 主题
+  boot.ts - 插件系统
+  define.ts - 默认配置集合
+  interface.ts - 编辑器类型声明
+  index.ts
+...
