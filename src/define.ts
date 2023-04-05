@@ -1,7 +1,6 @@
-export default {
+const defines = {
   toolbar: [],
   tipsbar: {
-    all: [],
     image: [
       'image.w25',
       'image.w50',
@@ -12,7 +11,19 @@ export default {
       'image.align.end',
     ],
   },
-  leftbar: {
-    all: ['insert.top', 'insert.bottom', 'delete'],
-  },
+  linebar: {},
+}
+
+export function getToolbars(): string[] {
+  return defines.toolbar
+}
+
+export function getTipsbars(type: string): string[] {
+  const shared: string[] = []
+  return [...shared, ...(defines.tipsbar[type] || [])]
+}
+
+export function getLinebars(type: string): string[] {
+  const shared: string[] = ['insert.top', 'insert.bottom', 'delete']
+  return [...shared, ...(defines.linebar[type] || [])]
 }

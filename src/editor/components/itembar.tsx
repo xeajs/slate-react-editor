@@ -1,9 +1,11 @@
+import { IBoot } from '@/boot'
+import { useEditor, useFocused, useLocale, useReadOnly } from '@/hooks'
 import { Tooltip } from 'antd'
 import { TooltipPlacement } from 'antd/es/tooltip'
 import classNames from 'classnames'
 import { HTMLAttributes, useEffect, useRef, useState } from 'react'
 import { BaseElement } from 'slate'
-import { event, IBoot, useEditor, useFocused, useLocale, useReadOnly } from 'src'
+import { event } from '@/editor/event'
 
 interface ItembarProps {
   attributes?: HTMLAttributes<HTMLDivElement>

@@ -1,8 +1,10 @@
+import { useEditor } from '@/hooks'
 import { create } from './helper'
 import { Dropdown } from 'antd'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { AiFillCaretDown } from 'react-icons/ai'
-import { Boot, Bucket, IBoot, event, slate, useEditor } from 'src'
+import { Bucket, IBoot, Boot } from '@/boot'
+import { slate, event } from '@/index'
 
 function HeadingSelect() {
   const editor = useEditor()

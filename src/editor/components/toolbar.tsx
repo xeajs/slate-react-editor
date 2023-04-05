@@ -1,8 +1,8 @@
 import classNames from 'classnames'
 import { useRef } from 'react'
 import { IToolbarProps } from 'src'
-import { Itembar } from 'src/share/components/itembar'
-import { createToolbar } from 'src/share/engine'
+import { createToolbar } from '@/editor/transfer'
+import { Itembar } from './itembar'
 
 export function Toolbar({ ignore, define, className, ...props }: IToolbarProps) {
   const toolbars = useRef(Array.from(createToolbar(ignore))).current

@@ -1,6 +1,6 @@
 {
   "name": "slate-react-editor",
-  "version": "0.90.0-alpha.4",
+  "version": "0.90.0-alpha.5",
   "description": "A pluggable rich text editor based on slate and react",
   "main": "dist/index.js",
   "module": "dist/index.js",

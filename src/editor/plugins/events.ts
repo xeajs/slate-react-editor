@@ -1,5 +1,7 @@
+import { IEditor } from '@/interface'
 import isHotkey from 'is-hotkey'
-import { event, IEditor, slate } from 'src'
+import * as slate from 'slate'
+import { event } from '../event'
 
 export function withEvents(editor: IEditor) {
   function defuKeyDown(event: React.KeyboardEvent<HTMLDivElement>) {

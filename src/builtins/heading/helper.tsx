@@ -1,4 +1,6 @@
-import { IBoot, IEditor, slate } from 'src'
+import { slate } from '@/index'
+import { IBoot } from '@/boot'
+import { IEditor } from '@/interface'
 
 export function create(key: string, label?: (props) => JSX.Element): Omit<IBoot.Menu, 'type'> {
   const _label = label || (() => <span>{key.toLocaleUpperCase()}</span>)

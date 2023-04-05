@@ -1,9 +1,12 @@
+import Boot, { IBoot } from '@/boot'
+import { slate } from '@/index'
+import { useSelected, useFocused } from '@/hooks'
+import { IEditor } from '@/interface'
 import classNames from 'classnames'
 import { ReactNode } from 'react'
 import { AiOutlineAlignCenter, AiOutlineAlignLeft, AiOutlineAlignRight } from 'react-icons/ai'
 import { BiImageAdd } from 'react-icons/bi'
 import { ReactEditor } from 'slate-react'
-import { Boot, IBoot, IEditor, slate, useFocused, useSelected } from 'src'
 
 function createImageMenu(
   title: string,

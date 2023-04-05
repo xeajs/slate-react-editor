@@ -1,7 +1,6 @@
-import * as htmlParser from 'node-html-parser'
 import { RenderElementProps } from 'slate-react'
-import { slate } from 'src'
-import { IEditor } from 'src'
+import { IEditor } from '@/interface'
+import { htmlParser, slate } from '@/index'
 
 export const Bucket = {
   Hook: new Map<string, IBoot.Hook>(),

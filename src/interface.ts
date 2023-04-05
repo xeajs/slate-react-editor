@@ -1,6 +1,6 @@
 import { HTMLAttributes, TextareaHTMLAttributes } from 'react'
 import { ReactEditor } from 'slate-react'
-import { slate } from 'src'
+import { slate } from '@/index'
 
 declare global {
   export module slateNodes {

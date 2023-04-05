@@ -1,7 +1,7 @@
+import { Boot } from '@/boot'
+import { slate } from '@/index'
 import { TbRowInsertBottom, TbRowInsertTop } from 'react-icons/tb'
 import { ReactEditor } from 'slate-react'
-import { slate } from 'src'
-import Boot from 'src/boot'
 
 export default Boot.factory((setup) => {
   setup.menu('insert.top', {

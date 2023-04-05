@@ -1,6 +1,8 @@
 import { MdInsertLink } from 'react-icons/md'
-import { Boot, createTextHtml, createTextParser, IEditor, slate } from 'src'
 import './locale'
+import { Boot } from '@/boot'
+import { IEditor } from '@/interface'
+import { createTextHtml, createTextParser, slate } from '@/index'
 
 export default Boot.factory((setup) => {
   setup.menu('link', {

@@ -1,4 +1,5 @@
-import { IEditor, slate } from 'src'
+import { IEditor } from 'src'
+import * as slate from 'slate'
 
 export function withSelection(editor: IEditor) {
   editor.select = function (at: slate.Location) {
