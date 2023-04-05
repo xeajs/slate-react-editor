@@ -1,5 +1,5 @@
 /** registry_builtins_modules */
-import { Boot } from 'src'
+import { Boot } from '@/index'
 import headingModule from './heading'
 import imageModule from './image'
 import linkModule from './link'

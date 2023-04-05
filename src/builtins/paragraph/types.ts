@@ -1,4 +1,4 @@
-import { IBoot } from 'src'
+import { IBoot } from '@/boot'
 
 declare global {
   export module slateNodes {

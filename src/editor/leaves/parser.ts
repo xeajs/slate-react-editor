@@ -1,4 +1,4 @@
-import * as htmlParser from 'node-html-parser'
+import { htmlParser } from '@/index'
 import { jsx } from 'slate-hyperscript'
 
 export function createTextParser(node: htmlParser.Node, attributes = {}) {

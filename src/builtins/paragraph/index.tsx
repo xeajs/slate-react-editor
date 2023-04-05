@@ -1,4 +1,5 @@
-import { Boot, createTextHtml, createTextParser } from 'src'
+import { Boot } from '@/boot'
+import { createTextHtml, createTextParser } from '@/editor'
 
 export default Boot.factory((setup) => {
   setup.html<slateNodes.Paragraph>('paragraph', (node, editor) => {

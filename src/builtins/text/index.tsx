@@ -1,3 +1,4 @@
+import { IEditor } from '@/interface'
 import './locale'
 import { ReactNode } from 'react'
 import {
@@ -8,7 +9,8 @@ import {
   MdSubscript,
   MdSuperscript,
 } from 'react-icons/md'
-import { Boot, IBoot, IEditor, slate } from 'src'
+import { slate } from '@/index'
+import { IBoot, Boot } from '@/boot'
 
 export function createMenus(key: string, title: string, label: ReactNode): Omit<IBoot.Menu, 'type'> {
   return {

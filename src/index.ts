@@ -1,8 +1,11 @@
+export * as htmlParser from 'node-html-parser'
+export * as hotkey from 'is-hotkey'
 export * as slate from 'slate'
+export * as slateReact from 'slate-react'
+
 export * from './editor'
-export * from 'is-hotkey'
 export * from './hooks'
+export * from './define'
 export * from './boot'
-export * from './share'
 export * from './interface'
 import './builtins'

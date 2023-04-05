@@ -1,4 +1,4 @@
-import { slate } from 'src'
+import { slate } from '@/index'
 
 export function createTextHtml(slateElement: slate.Element) {
   const children = slateElement.children.map((child) => {

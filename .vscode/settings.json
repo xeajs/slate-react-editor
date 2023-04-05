@@ -24,7 +24,8 @@
     "editor.defaultFormatter": "rome.rome"
   },
   "[javascript]": {
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "rome.rome"
   },
   "[javascriptreact]": {
     "editor.formatOnSave": true

@@ -2,12 +2,15 @@ import * as htmlParser from 'node-html-parser'
 import { withHistory } from 'slate-history'
 import { jsx } from 'slate-hyperscript'
 import { RenderElementProps, withReact } from 'slate-react'
-import { Bucket, IBoot, IEditor, getEmptySlate, slate } from 'src'
-import { Tipsbar } from 'src/editor/tipsbar'
-import { withContent } from 'src/share/plugins/content'
-import { withDefine } from 'src/share/plugins/define'
-import { withEvents } from 'src/share/plugins/events'
-import { withSelection } from 'src/share/plugins/selection'
+import { withContent } from '../plugins/content'
+import { withDefine } from '../plugins/define'
+import { withSelection } from '../plugins/selection'
+import { withEvents } from '../plugins/events'
+import * as slate from 'slate'
+import { Bucket, IBoot } from '@/boot'
+import { IEditor } from '@/interface'
+import { Tipsbar } from '../components/tipsbar'
+import { Linebar, genEmptyParagraphNode } from '@/index'
 
 export function createEditor() {
   const builtins = [withReact, withHistory, withContent, withDefine, withSelection, withEvents]
@@ -23,10 +26,10 @@ export function createSlateHtml(descendant: slate.Descendant, editor: IEditor) {
 }
 
 export function createParser(editor: IEditor, html: string | slate.Descendant[]) {
-  if (html === '') return [getEmptySlate()]
+  if (html === '') return [genEmptyParagraphNode()]
 
   if (Array.isArray(html)) {
-    if (!html.length) return [getEmptySlate()]
+    if (!html.length) return [genEmptyParagraphNode()]
     return html
   }
 
@@ -68,7 +71,9 @@ export function createRender(editor: IEditor) {
     const withRender = Bucket.Render.get(type)
     return (
       <Tipsbar renderElementProps={renderProps}>
-        {withRender ? withRender(element as IBoot.Element, renderProps, editor) : <p {...attributes}>{children}</p>}
+        <Linebar renderElementProps={renderProps}>
+          {withRender ? withRender(element as IBoot.Element, renderProps, editor) : <p {...attributes}>{children}</p>}
+        </Linebar>
       </Tipsbar>
     )
   }
@@ -77,7 +82,10 @@ export function createRender(editor: IEditor) {
 export function createToolbar(ignore: string[] = []) {
   let menuTypes = Array.from(Bucket.Menu.keys())
   menuTypes = menuTypes.filter((type) => !ignore.includes(type))
-  return menuTypes.reduce<IBoot.Menu[]>((toolbars, type) => [...toolbars, Bucket.Menu.get(type)!].filter(Boolean), [])
+  return menuTypes.reduce<IBoot.Menu[]>(
+    (toolbars, type) => [...toolbars, Bucket.Menu.get(type) as IBoot.Menu].filter(Boolean),
+    []
+  )
 }
 
 export function createTipsbar<T = {}>(editor: IEditor, type: string): T | null {

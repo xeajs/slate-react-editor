@@ -1,4 +1,4 @@
-import { Boot } from 'src'
+import { Boot } from '@/boot'
 import { create } from './helper'
 
 export default Boot.factory((setup) => {

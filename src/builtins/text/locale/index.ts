@@ -1,4 +1,4 @@
-import { i18nAddResources } from 'src/share/i18n'
+import { i18nAddResources } from '@/index'
 
 i18nAddResources('zh-CN', {
   text: {

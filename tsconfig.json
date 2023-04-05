@@ -10,7 +10,6 @@
     "declaration": true,
     "noImplicitAny": false,
     "strictFunctionTypes": false,
-    "suppressImplicitAnyIndexErrors": true,
     "newLine": "lf",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
@@ -33,16 +32,21 @@
     "esModuleInterop": true,
     "skipDefaultLibCheck": true,
     "skipLibCheck": true,
-    "typeRoots": [
-      "node_modules/@types",
-      "typings"
-    ],
     "lib": [
       "ES6",
       "DOM",
       "DOM.Iterable",
       "ESNext"
-    ]
+    ],
+    "typeRoots": [
+      "node_modules/@types",
+      "typings"
+    ],
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ],
+    }
   },
   "include": [
     "src",
@@ -51,6 +55,7 @@
   ],
   "exclude": [
     "node_modules",
+    "playground",
     "**/?(*.)+(spec|test).[tj]s?(x)",
     "**/demo/**",
     "**/__test__/**"

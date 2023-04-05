@@ -1,5 +1,5 @@
-import { getEmptySlate, IEditor, slate } from 'src'
-import { createSlateHtml } from 'src/share/engine'
+import { genEmptyParagraphNode, IEditor, slate, slateReact } from '@/index'
+import { createSlateHtml } from '../transfer'
 
 export function withContent(editor: IEditor) {
   editor.getHtml = function (): string {
@@ -11,6 +11,8 @@ export function withContent(editor: IEditor) {
     const { children = [] } = editor
     return children.map((child) => slate.Node.string(child)).join('\n')
   }
+
+  editor.insetEmptyParagraph
 
   editor.getNodeType = function (node: slate.Node) {
     if (slate.Element.isElement(node)) {
@@ -40,7 +42,7 @@ export function withContent(editor: IEditor) {
   }
 
   editor.genEmptyParagraph = function () {
-    return getEmptySlate()
+    return genEmptyParagraphNode()
   }
 
   editor.getSelectedNodeByType = function (type: string) {
